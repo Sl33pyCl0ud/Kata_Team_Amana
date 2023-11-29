@@ -19,14 +19,16 @@ public class App {
         }
         contactsGenerator = new ContactsGenerator();
     }
-
+ 
     public static void main(String[] args) {
+        /*
         if (args.length != 1) {
             System.err.println("Not enough args");
             System.exit(2);
         }
         int count = Integer.parseInt(args[0]);
-
+        */
+        int count = 1000000;
         App app = null;
         try {
             app = new App();
@@ -45,7 +47,7 @@ public class App {
     }
 
     private void lookupContact(int count) {
-        String email = String.format("email-%d@tld", count);
+        String email = String.format("email-%d@aol.com", count);
         long start = System.currentTimeMillis();
         database.getContactNameFromEmail(email);
         long end = System.currentTimeMillis();

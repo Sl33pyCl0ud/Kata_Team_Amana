@@ -10,7 +10,7 @@ public class ContactsGenerator {
     Contact[] contacts = new Contact[count];
 
       for(int i=0; i<count; i++) {
-        contacts [i] = new Contact("Alice", "alice@aol.com");
+        contacts [i] = new Contact("Alice", "email-" + (i+1) + "@aol.com");
       }
       /*
       new Contact("Alice", "alice@aol.com"),
