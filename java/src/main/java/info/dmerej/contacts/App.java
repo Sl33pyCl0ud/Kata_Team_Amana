@@ -42,8 +42,19 @@ public class App {
     }
 
     private void insertContacts(int count) {
-        Stream<Contact> contacts = contactsGenerator.generateContacts(count);
-        database.insertContacts(contacts);
+        int c = count;
+        while(c > 0) {
+            if(c >= 100) {
+                Stream<Contact> contacts = contactsGenerator.generateContacts(100);
+                database.insertContacts(contacts);
+                c = c-100;
+            }
+            else {
+                Stream<Contact> contacts = contactsGenerator.generateContacts(c%100);
+                database.insertContacts(contacts);
+                c = 0;
+            }
+        }
     }
 
     private void lookupContact(int count) {
